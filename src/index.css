@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #fafaf8;
+  --color-beige: #f5f5f0;
+  --color-sand: #eae7db;
+
+  --color-bark-950: #090e0b;
+  --color-bark-900: #0e1411;
+  --color-bark-800: #151d18;
+  --color-bark-700: #1d2821;
+  --color-bark-600: #29362d;
+  --color-bark-500: #3a4a3f;
+  --color-bark-400: #5b6e61;
+
+  --color-fern-50: #f0fdf6;
+  --color-fern-100: #dcfce9;
+  --color-fern-200: #bbf7d4;
+  --color-fern-300: #86efb8;
+  --color-fern-400: #4ade96;
+  --color-fern-500: #10b981;
+  --color-fern-600: #059669;
+  --color-fern-700: #047857;
+  --color-fern-800: #065f46;
+  --color-fern-900: #064e3b;
+
+  --shadow-soft: 0 6px 24px -6px rgb(15 30 22 / 0.08), 0 2px 8px -2px rgb(15 30 22 / 0.05);
+  --shadow-lift: 0 20px 45px -12px rgb(15 30 22 / 0.18);
+  --shadow-glow: 0 10px 30px -8px rgb(16 185 129 / 0.45);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-sway: sway 5s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(3deg); }
+  }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(5deg); }
+  }
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-bark-900);
+  overscroll-behavior-y: none;
+}
+
+.dark body {
+  background: var(--color-bark-950);
+  color: var(--color-cream);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.55;
+  cursor: pointer;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
